@@ -8,7 +8,7 @@ const textVariants = {
     opacity: 1,
     transition: {
       duration: 1,
-      staggerChildren: 0.2, // Corrected the `staggerChildren` placement.
+      staggerChildren: 0.2, 
     },
   },
 };
@@ -16,6 +16,19 @@ const textVariants = {
 const childVariants = {
   initial: { opacity: 0, y: 20 },
   animate: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+};
+
+const scrollButtonVariants = {
+  initial: { opacity: 0, y: 0 },
+  animate: {
+    opacity: 1,
+    y: [0, -10, 0],
+    transition: {
+      duration: 2,
+      repeat: Infinity,
+      repeatType: 'loop',
+    },
+  },
 };
 
 const Hero = () => {
@@ -38,7 +51,9 @@ const Hero = () => {
             <motion.button variants={childVariants}>Contact Me</motion.button>
           </motion.div>
           <motion.img
-            variants={childVariants}
+            variants={scrollButtonVariants}
+            initial="initial"
+            animate="animate"
             src="/src/assets/scroll.png"
             alt="Scroll Icon"
             className="scrollIcon"
