@@ -1,27 +1,76 @@
 .navbar {
-   height: 100px;
+    height: 100px;
+    padding: 0 20px; // Added padding for spacing on smaller screens
   
     .wrapper {
-        max-width: 1366px;
-        margin: auto;
+      max-width: 1366px;
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+  
+      span {
+        font-weight: bold;
+        font-size: 24px; // Adjust font size for better readability
+      }
+  
+      .social {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        height: 100%;
-
-        span {
-            font-weight: bold;
-        }
-
-        .social {
-            display: flex;
-            gap: 20px;
-        }
-
+        gap: 20px;
+  
         img {
-            height: 18px;
-            width: 18px;
+          height: 18px;
+          width: 18px;
+          transition: transform 0.3s;
+  
+          &:hover {
+            transform: scale(1.1); // Slight hover effect for better UX
+          }
         }
+      }
+    }
+  
+    // Mobile Responsive Styles
+    @media (max-width: 768px) {
+      .wrapper {
+        flex-direction: column; // Stack elements vertically
+        align-items: center;
+        text-align: center;
+        gap: 10px; // Add spacing between elements
+  
+        span {
+          font-size: 20px; // Smaller font size for logo
+        }
+  
+        .social {
+          gap: 15px;
+  
+          img {
+            height: 16px; // Adjust image size for smaller screens
+            width: 16px;
+          }
+        }
+      }
+    }
+  
+    @media (max-width: 480px) {
+      .wrapper {
+        gap: 5px; // Reduce spacing further for smaller devices
+  
+        span {
+          font-size: 18px; // Further reduce font size for logo
+        }
+  
+        .social {
+          gap: 10px;
+  
+          img {
+            height: 14px; // Smaller icons for very small screens
+            width: 14px;
+          }
+        }
+      }
     }
   }
-    
+  

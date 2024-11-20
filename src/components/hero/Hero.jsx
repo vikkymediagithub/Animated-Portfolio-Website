@@ -8,7 +8,20 @@ const textVariants = {
     opacity: 1,
     transition: {
       duration: 1,
-      staggerChildren: 0.2, 
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const SliderVariants = {
+  initial: { x: 0 },
+  animate: {
+    x: '-220%',
+    transition: {
+      duration: 10, // Adjusted duration for a smoother effect
+      repeat: Infinity,
+      repeatType: 'loop', // Corrected invalid 'morrow' to 'loop'
+      ease: 'linear', // Smooth linear scrolling effect
     },
   },
 };
@@ -61,9 +74,14 @@ const Hero = () => {
         </motion.div>
 
         {/* Sliding Text */}
-        <div className="slidingTextContainer">
+        <motion.div
+          className="slidingTextContainer"
+          variants={SliderVariants}
+          animate="animate"
+          initial="initial"
+        >
           Writer, Frontend Developer, Freelancer, Video Maker, Content Writer
-        </div>
+        </motion.div>
 
         {/* Image Container */}
         <div className="imageContainer">
